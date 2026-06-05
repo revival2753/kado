@@ -1,0 +1,22 @@
+:root {
+    --font-size-h1: 40px;
+    --font-size-h2: 28px;
+    --font-size-h3: 20px;
+    --font-size-p: 16px;
+}
+
+h1 {
+    font-size: var(--font-size-h1);
+}
+
+h2 {
+    font-size: var(--font-size-h2);
+}
+
+h3 {
+    font-size: var(--font-size-h3);
+}
+
+p {
+    font-size: var(--font-size-p);
+}

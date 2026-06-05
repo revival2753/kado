@@ -1,0 +1,32 @@
+{
+  "name": "kado",
+  "version": "1.0.0",
+  "description": "Kado",
+  "main": "main.js",
+  "author": "buzxce, ravengeance",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron .",
+    "package": "electron-builder --dir",
+    "make": "electron-builder --win --x64"
+  },
+  "build": {
+    "appId": "com.kado.app",
+    "productName": "Kado",
+    "win": {
+      "target": "nsis",
+      "icon": "assets/Kado.ico"
+    },
+    "directories": {
+      "buildResources": "assets"
+    }
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "^7.11.1",
+    "electron": "^28.3.3",
+    "electron-builder": "^24.13.3"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "type": "commonjs"
+}

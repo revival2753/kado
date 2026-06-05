@@ -1,0 +1,83 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background: #499df2;
+    color: white;
+    padding: 15px 20px;
+    background: var(--header-bg);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    min-height: 70px;
+}
+
+header h1 {
+    font-weight: bolder;
+}
+
+.nav-menu ul {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+    flex-wrap: wrap;
+}
+
+.nav-menu li {
+    list-style: none;
+}
+
+.nav-menu a {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.nav-menu .btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nav-menu {
+    margin-left: auto;
+}
+
+.help-btn {
+    float: right;
+    margin-left: auto;
+    color: white;
+    text-decoration: none;
+}
+
+#open-add-modal,
+.nav-menu button {
+    background-color: var(--nav-btn-bg);
+    border-radius: 25px;
+    padding: 0px 40px;
+    min-height: 40px;
+    min-width: 120px;
+    max-width: 250px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+}
+
+.nav-menu button a {
+    color: white;
+    text-decoration: none;
+}
+
+.nav-menu li.\btn btn-one {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}

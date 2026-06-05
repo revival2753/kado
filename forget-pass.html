@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вход Kado</title>
+    <link rel="stylesheet" href="Styles/fonts.css">
+    <link rel="stylesheet" href="Styles/welcome-page/welcome.css">
+    <link rel="icon" href="image/Kado.ico"/>
+</head>
+<body>
+    <header class="app-header">
+        <a href="main.html" style="color: white; text-decoration: none;"><h1>Kado</h1></a>
+            <nav class="nav-menu">
+                <ul class="nav-menu__list">
+                    <li class="nav-menu__item">
+                        <button type="button" class="btn btn-header btn-header--help">
+                            <a href="https://t.me/KadoSupport_bot" target="_blank">ПОМОЩЬ</a>
+                        </button>
+                    </li>
+                    <li class="nav-menu__item nav-menu__item--theme">
+                        <label class="switch">
+                            <input type="checkbox" id="theme-toggle">
+                            <span class="slider"></span>
+                        </label>
+                        <span id="theme-label"></span>
+                    </li>
+            </nav>
+    </header>
+
+    <main class="welcome-page">
+        <section class="reg">
+            <div class="container">
+                <div class="register-box">
+                    <form class="registration" id="registration-form" novalidate>
+                        <h2>Восстановление доступа</h2>
+
+                        <div class="form-group">
+                            <label for="reg-email">Email</label>
+                            <input type="email" id="reg-email" name="email" placeholder="kado@email.com" autocomplete="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="reg-login">Логин</label>
+                            <input type="text" id="reg-login" name="login" placeholder="KadoUser1" autocomplete="username" minlength="3" maxlength="24" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="reg-password">Код</label>
+                            <input type="password" id="reg-password" name="password" placeholder="123456" autocomplete="new-password" minlength="6" maxlength="6" required>
+                        </div>
+
+                        <p class="form-message" id="form-message" role="alert" aria-live="polite"></p>
+
+                        <button type="submit" class="btn-registr" id="btn-register" enabled>Отправить код</button>
+                        
+                        <p class="login-link">
+                            Еще нет аккаунта?<br>
+                            <a href="index.html">Зарегистрироваться</a>
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="JavaScript/welcome.js"></script>
+</body>
+</html>
