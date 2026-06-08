@@ -1,10 +1,12 @@
-from sqlalchemy.orm  import Mapped, mapped_column
-from sqlalchemy import String
+from sqlalchemy.orm  import Mapped
+from sqlalchemy import String, DateTime, Boolean, Column
 from database import Base
+ 
 
 class Users(Base):
     __tablename__ = "users"
 
-    id: Mapped[str] = mapped_column(String, primary_key=True)
-    username: Mapped[str] = mapped_column(String, primary_key=True)
-    password: Mapped[str] = mapped_column(String, primary_key=True)
+    id = Mapped(String, primary_key=True, index=True)
+    username = Mapped(String, unique=True, index=True)
+    email = Mapped(String, unique=True, index=True)
+    hashed_password = Mapped(String)  
