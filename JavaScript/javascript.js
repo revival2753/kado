@@ -278,6 +278,7 @@ function prevCard() {
 
 // --- Алгоритм повторений ---
 function scheduleNextReview(rating) {
+    console.log('Кнопка нажата:', rating, 'isFlipped:', isFlipped, 'cards.length:', cards.length);
     if (cards.length === 0 || !isFlipped) return;
 
     const card = cards[currentCardIndex];
@@ -360,6 +361,7 @@ function scheduleNextReview(rating) {
     });
     saveScheduledReviews();
     saveCards();
+    console.log('После scheduleNextReview, currentCardIndex:', currentCardIndex, 'нужно вызвать nextCard');
 }
 
 function checkScheduledReviews() {
@@ -373,17 +375,9 @@ function checkScheduledReviews() {
 
     dueCards.forEach((due) => {
         if (due.cardIndex < cards.length && !reviewQueue.includes(due.cardIndex)) {
-            reviewQueue.unshift(due.cardIndex);
+            reviewQueue.push(due.cardIndex);
         }
     });
-
-    if (!isFlipped && reviewQueue.length > 0) {
-        clearTimeout(reviewTimer);
-        reviewTimer = setTimeout(() => {
-            currentCardIndex = reviewQueue.shift();
-            updateCard();
-        }, 10);
-    }
 }
 
 // --- Модальные окна ---
@@ -664,10 +658,10 @@ importFileInput.addEventListener('change', handleFileImport);
 clearAllBtn.addEventListener('click', clearAllCards);
 document.addEventListener('keydown', handleKeyPress);
 
-repeatBtn.addEventListener('click', () => scheduleNextReview('REPEAT'));
-hardBtn.addEventListener('click', () => scheduleNextReview('HARD'));
-normalBtn.addEventListener('click', () => scheduleNextReview('NORMAL'));
-easyBtn.addEventListener('click', () => scheduleNextReview('EASY'));
+repeatBtn.addEventListener('click', () => { scheduleNextReview('REPEAT'); nextCard(); });
+hardBtn.addEventListener('click', () => { scheduleNextReview('HARD'); nextCard(); });
+normalBtn.addEventListener('click', () => { scheduleNextReview('NORMAL'); nextCard(); });
+easyBtn.addEventListener('click', () => { scheduleNextReview('EASY'); nextCard(); });
 
 openAddModalBtn.addEventListener('click', openAddCardModal);
 closeAddModalBtn.addEventListener('click', closeAddCardModal);
