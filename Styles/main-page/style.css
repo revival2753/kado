@@ -157,7 +157,7 @@ body {
 }
 
 .burger-menu__item:hover {
-    background: rgba(255, 255, 255, 0.022);
+    background: var(--burger-menu__item);
 }
 
 .burger-menu__divider {
@@ -168,8 +168,7 @@ body {
 
 .burger-menu__logout {
     width: 100%;
-    background: var(--modal-bg);
-    color: var(--text-color);
+    background: var(--red);
     border: none;
     border-radius: 10px;
     padding: 10px 12px;
@@ -179,7 +178,7 @@ body {
 }
 
 .burger-menu__logout:hover {
-    background: rgba(255, 255, 255, 0.022);
+    background: #e75174;
 }
 
 @media screen and (min-width: 100px) and (max-width: 550px) {
@@ -1113,6 +1112,7 @@ input:checked + .slider:after {
     --green: #2fda54;
     --focus: #499df2;
     --input-error: #c62828;
+    --burger-menu__item: #499ef21d;
 }
 
 [data-theme="dark"] {
@@ -1159,6 +1159,7 @@ input:checked + .slider:after {
     --green: #24aa41;
     --focus: #8b7ec8;
     --input-error: #ff6b6b;
+    --burger-menu__item: rgba(255, 255, 255, 0.1);
 }
 
 @media screen and (min-width:100px) and (max-width:550px) {
@@ -1178,7 +1179,6 @@ input:checked + .slider:after {
     .nav-menu ul {
         gap: 0px;
     }
-
     .modal-title {
         font-size: 18px;
     }
@@ -1188,6 +1188,11 @@ input:checked + .slider:after {
     .sidebar {
         width: 100%;
         height: 100%;
+        transform: translateX(-100%);
+        transition: transform .3s ease;
+    }
+    #check:checked ~ .sidebar {
+        transform: translateX(0);
     }
     .card {
         width: 80%;
@@ -1284,6 +1289,11 @@ input:checked + .slider:after {
     .sidebar {
         width: 60%;
         height: 100%;
+        transform: translateX(-100%);
+        transition: transform .3s ease;
+    }
+    #check:checked ~ .sidebar {
+        transform: translateX(0);   
     }
     .card {
         width: 80%;
