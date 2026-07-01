@@ -15,6 +15,41 @@ const STORAGE_AUTH_PROVIDER_KEY = 'kadoAuthProvider';
 // --- Тема ---
 const themeToggle = document.getElementById('theme-toggle');
 
+async function handleFormSubmit(event) {
+    event.preventDefault();
+    console.log('Submit сработал');
+    showMessage('');
+
+    if (!validateForm()) {
+        console.log('Валидация не прошла');
+        return;
+    }
+    console.log('Отправляю запрос на бэкенд');
+
+    setFormLoading(true);
+    try {
+        await registerAndLogin(
+            loginInput.value.trim(),
+            emailInput.value.trim(),
+            passwordInput.value
+        );
+    } catch (error) {
+        console.log('Ошибка:', error.message);
+        showMessage(error.message, 'error');
+    } finally {
+        setFormLoading(false);
+    }
+}
+
+function setFormLoading(isLoading) {
+    registerButton.disabled = isLoading;
+    registerButton.textContent = isLoading ? 'Загрузка...' : 'Зарегистрироваться';
+}
+
+function handleGoogleSignIn() {
+    showMessage('Вход через Google пока не реализован.');
+}
+
 if (themeToggle) {
     const savedTheme = localStorage.getItem('theme');
     
@@ -159,25 +194,6 @@ async function registerAndLogin(username, email, password) {
     completeRegistration(user, auth.access_token, 'email');
 }
 
-async function handleFormSubmit(event) {
-    event.preventDefault();
-    showMessage('');
-
-    if (!validateForm()) return;
-
-    setFormLoading(true);
-    try {
-        await registerAndLogin(
-            loginInput.value.trim(),
-            emailInput.value.trim(),
-            passwordInput.value
-        );
-    } catch (error) {
-        showMessage(error.message, 'error');
-    } finally {
-        setFormLoading(false);
-    }
-}
 
 function handleTermsClick(event) {
     event.preventDefault();
@@ -202,7 +218,5 @@ async function checkExistingSession() {
 
 registrationForm.addEventListener('submit', handleFormSubmit);
 googleButton.addEventListener('click', handleGoogleSignIn);
-termsLink.addEventListener('click', handleTermsClick);
 
 checkExistingSession();
-updateRegisterButtonState();

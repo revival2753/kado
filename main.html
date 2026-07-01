@@ -15,22 +15,47 @@
             <a href="main.html" style="color: white; text-decoration: none;"><h1>Kado</h1></a>
             <nav class="nav-menu">
                 <ul class="nav-menu__list">
+                    <li class="nav-menu__item nav-menu__item--streak" id="streak-indicator">
+                        <span class="streak-icon">🔥</span>
+                        <span class="streak-count" id="streak-count">0</span>
+                    </li>
                     <li class="nav-menu__item">
                         <button type="button" class="btn btn-header btn-header--add" id="open-add-modal">
                             <span>ДОБАВИТЬ</span>
                         </button>
                     </li>
-                    <li class="nav-menu__item">
-                        <button type="button" class="btn btn-header btn-header--help">
-                            <a href="https://t.me/KadoSupport_bot" target="_blank">ПОМОЩЬ</a>
+                    <li class="nav-menu__item nav-menu__item--burger">
+                        <button type="button" class="btn-burger" id="burger-toggle" aria-label="Меню" aria-expanded="false">
+                            <span></span>
+                            <span></span>
+                            <span></span>
                         </button>
-                    </li>
-                    <li class="nav-menu__item nav-menu__item--theme">
-                        <label class="switch">
-                            <input type="checkbox" id="theme-toggle">
-                            <span class="slider"></span>
-                        </label>
-                        <span id="theme-label"></span>
+
+                        <div class="burger-menu" id="burger-menu">
+                            <div class="burger-menu__item burger-menu__item--link">
+                                <a href="https://your-app-download-link.com" target="_blank" rel="noopener" class="burger-menu__link">
+                                Мобильное приложение
+                                </a>
+                            </div>
+
+                            <div class="burger-menu__item burger-menu__item--theme">
+                                <span>Тема</span>
+                                <label class="switch">
+                                    <input type="checkbox" id="theme-toggle">
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                            <div class="burger-menu__item burger-menu__item--link">
+                                <a href="https://t.me/KadoSupport_bot" target="_blank" class="burger-menu__link">
+                                    Помощь
+                                </a>
+                            </div>
+                            <div class="burger-menu__divider"></div>
+
+                            <button type="button" class="burger-menu__logout" id="logout-btn">
+                                Выйти из аккаунта
+                            </button>
+                        </div>
                     </li>
                 </ul>
             </nav>

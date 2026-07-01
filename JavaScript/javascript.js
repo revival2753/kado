@@ -722,3 +722,63 @@ window.addEventListener('click', (e) => {
 
 window.editWord = editWord;
 window.deleteWord = deleteWord;
+
+
+// --- Бургер-меню ---
+const burgerToggle = document.getElementById('burger-toggle');
+const burgerMenu = document.getElementById('burger-menu');
+const logoutBtn = document.getElementById('logout-btn');
+
+function openBurgerMenu() {
+    burgerMenu.classList.add('open');
+    burgerToggle.setAttribute('aria-expanded', 'true');
+}
+
+function closeBurgerMenu() {
+    burgerMenu.classList.remove('open');
+    burgerToggle.setAttribute('aria-expanded', 'false');
+}
+
+function toggleBurgerMenu() {
+    burgerMenu.classList.contains('open') ? closeBurgerMenu() : openBurgerMenu();
+}
+
+if (burgerToggle && burgerMenu) {
+    burgerToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleBurgerMenu();
+    });
+
+    document.addEventListener('click', (e) => {
+        if (!burgerMenu.contains(e.target) && e.target !== burgerToggle) {
+            closeBurgerMenu();
+        }
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeBurgerMenu();
+    });
+}
+
+// --- Логаут ---
+async function logout() {
+    const token = localStorage.getItem('access_token');
+
+    try {
+        await fetch('http://127.0.0.1:8000/auth/logout', {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        });
+    } catch (error) {
+        console.error('Ошибка при выходе:', error);
+    } finally {
+        localStorage.removeItem('access_token');
+        window.location.href = 'login.html';
+    }
+}
+
+if (logoutBtn) {
+    logoutBtn.addEventListener('click', logout);
+}

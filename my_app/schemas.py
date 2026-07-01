@@ -7,7 +7,7 @@ class SignUpSchema(BaseModel):
     password: str = Field(min_length=8)
 
 class SignInSchema(BaseModel):
-    email: EmailStr
+    username: str
     password: str
 
 class TokenSchema(BaseModel):
@@ -26,3 +26,7 @@ class WordResponse(BaseModel):
 
     class Config:
         from_attributes = True
+
+class ReviewSchema(BaseModel):
+    word_id: str
+    quality: int = Field(ge=0, le=5, description="0 — совсем не помню, 5 — помню отлично")
