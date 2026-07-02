@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Скачать Kado</title>
+    <link rel="stylesheet" href="Styles/fonts.css" />
+    <link rel="stylesheet" href="Styles/welcome-page/welcome.css" />
+    <link rel="icon" href="image/Kado.ico" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+    <header>
+        <a href="../main.html" style="color: white; text-decoration: none;"><h1>Kado</h1></a>
+    </header>
+
+    <div class="main-container">
+        <div class="left-column">
+            <div class="logo-title">
+                <img class="ICO" src="image/Kado.ico" alt="Kado.ico" />
+                <h2>Kado - Интеравальное повторение</h2>
+            </div>
+            <div class="description">
+                <h3>Желаете подтянуть ваш английский?</h3>
+                <p class="text">
+                    Kado - это современная платформа для изучения иностранных языков, построенная на принципах интервального повторения. В основе приложения - интерактивные карточки, которые превращают обучение в увлекательный и эффективный процесс. Система адаптивно подстраивается под ваш темп, помогая надёжно закреплять новые слова и конструкции в долговременной памяти.
+                </p>
+            </div>
+            <div class="buttons">
+                <a href="../main.html" class="btn web">
+                    <i class="fas fa-globe"></i> Web-версия
+                </a>
+                <a href="downloads/KadoSetup.exe" class="btn windows" download>
+                    <i class="fab fa-windows"></i> Windows
+                </a>
+                <a href="downloads/Kado.apk" class="btn android" download>
+                    <i class="fab fa-android"></i> Android
+                </a>
+            </div>
+        </div>
+
+        <div class="right-column">
+            <img class="phone" src="image/phone.png" alt="забей" class="phone-image" />
+        </div>
+    </div>
+
+    <div class="android-float">
+        <img class="ingp" src="image/ingp.png" alt="доступно на андроид" />
+        <div class="qr-wrapper">
+            <img class="qr-code" src="image/qr-code.png" alt="QR-код" />
+        </div>
+    </div>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        header {
+            background-color: var(--blue);
+            color: white;
+            padding: 15px 20px;
+            max-height: 70px;
+        }
+
+        h1 {
+            font-size: var(--font-size-h1);
+        }
+
+        .ICO {
+            width: 70px;
+            border-radius: 10px;
+        }
+
+        h2 {
+            font-size: var(--font-size-h2);
+            color: var(--blue);
+        }
+
+        h3 {
+            font-size: var(--font-size-h3);
+            color: var(--blue);
+        }
+
+        .text {
+            font-size: 17px;
+            color: #666666;
+            margin-top: 20px;
+        }
+
+        :root {
+            --blue: #499df2;
+            --font-size-h1: 40px;
+            --font-size-h2: 32px;
+            --font-size-h3: 30px;
+            --font-size-p: 16px;
+        }
+
+        .phone {
+            width: 550px;
+        }
+
+        .main-container {
+            display: flex;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 30px 20px;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .left-column {
+            width: 60%;
+        }
+
+        .right-column {
+            width: 40%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .description {
+            margin-top: 40px;
+            margin-bottom: 40px;
+        }
+
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        /* ===== НОВЫЕ СТИЛИ ДЛЯ КНОПОК (ОДИНАКОВЫЙ РАЗМЕР) ===== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 15px 28px;
+            min-width: 180px;
+            height: 56px;
+            border-radius: 12px;
+            border: none;
+            color: white;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: var(--font-size-p);
+            font-weight: 600;
+            transition: filter 0.2s, transform 0.2s;
+            flex: 0 0 auto;
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        .btn i {
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+
+        .web {
+            background-color: var(--blue);
+        }
+
+        .windows {
+            background-color: #5a5a5a;
+        }
+
+        .android {
+            background-color: #2fda54;
+        }
+
+        .btn:hover {
+            filter: brightness(1.1);
+            transform: translateY(-2px);
+        }
+
+        .phone-image {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        /* ===== Плавающий блок (правый нижний угол) ===== */
+        .android-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .ingp {
+            max-width: 200px;
+        }
+
+        .qr-wrapper {
+            overflow: hidden;
+            max-height: 0;
+            opacity: 0;
+            transition: max-height 0.5s ease, opacity 0.4s ease, margin 0.3s ease;
+        }
+
+        .android-float:hover .qr-wrapper {
+            max-height: 200px;
+            opacity: 1;
+        }
+
+        .qr-code {
+            display: block;
+            width: 200px;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            background: white;
+            padding: 6px;
+        }
+
+        /* Адаптивность для небольших экранов */
+        @media (max-width: 768px) {
+            .main-container {
+                flex-direction: column;
+                padding: 20px;
+            }
+            .left-column,
+            .right-column {
+                width: 100%;
+            }
+            .right-column {
+                margin-top: 30px;
+            }
+            .buttons {
+                justify-content: center;
+            }
+            .logo-title {
+                justify-content: center;
+            }
+            .description {
+                text-align: center;
+            }
+            .android-float {
+                bottom: 15px;
+                right: 15px;
+            }
+            .ingp {
+                max-width: 180px;
+            }
+            .qr-code {
+                width: 140px;
+            }
+            .btn {
+                padding: 12px 20px;
+                min-width: 140px;
+                height: 48px;
+                font-size: 14px;
+            }
+            .btn i {
+                font-size: 18px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .buttons {
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+            }
+            .btn {
+                width: 100%;
+                max-width: 280px;
+                justify-content: center;
+                padding: 12px 20px;
+                min-width: unset;
+                white-space: normal;
+            }
+        }
+
+        /* ================= */
+/* Планшеты */
+/* ================= */
+
+@media (max-width: 900px) {
+
+
+.main-container {
+    flex-direction: column;
+    text-align: center;
+
+    margin-top: 30px;
+}
+
+
+.logo-title {
+    justify-content: center;
+}
+
+
+.buttons {
+    justify-content: center;
+}
+
+
+.right-column {
+    order: -1;
+}
+
+
+.phone {
+    width: 300px;
+}
+
+
+.android-float {
+    position: static;
+    justify-content: center;
+    margin: 30px 0;
+}
+
+}
+
+
+/* ================= */
+/* Телефоны */
+/* ================= */
+
+@media (max-width: 600px) {
+
+
+header {
+    padding: 15px 20px;
+    text-align: center;
+}
+
+
+header h1 {
+    font-size: 32px;
+}
+
+
+.main-container {
+    padding: 0 20px;
+    margin: 20px auto;
+    gap: 25px;
+}
+
+
+.logo-title {
+    flex-direction: column;
+}
+
+
+.logo-title h2 {
+    font-size: 24px;
+}
+
+
+.ICO {
+    width: 60px;
+    height: 60px;
+}
+
+
+.description h3 {
+    font-size: 22px;
+}
+
+
+.text {
+    font-size: 16px;
+}
+
+
+.buttons {
+    flex-direction: column;
+    width: 100%;
+}
+
+
+.btn {
+    justify-content: center;
+    width: 100%;
+}
+
+
+.phone {
+    width: 240px;
+}
+
+
+.android-float {
+    flex-direction: column;
+}
+
+
+.ingp {
+    width: 150px;
+}
+
+
+.qr-code {
+    width: 100px;
+    height: 100px;
+}
+
+}
+    </style>
+</body>
+</html>
